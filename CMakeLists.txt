@@ -3,26 +3,26 @@ cmake_minimum_required(VERSION 3.12)
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
-project(otus_2 VERSION ${PROJECT_VESRION})
+project(homework_2 VERSION ${PROJECT_VESRION})
 
 option(WITH_BOOST_TEST "Whether to build Boost test" ON)
 
 configure_file(version.h.in version.h)
 
-add_executable(otus_2 main.cpp)
-add_library(otus_2_lib lib.cpp)
+add_executable(homework_2 main.cpp)
+add_library(homework_2_lib lib.cpp)
 
-set_target_properties(otus_2 otus_2_lib PROPERTIES
+set_target_properties(homework_2 homework_2_lib PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
 
-target_include_directories(otus_2_lib
+target_include_directories(homework_2_lib
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-target_link_libraries(otus_2 PRIVATE
-    otus_2_lib
+target_link_libraries(homework_2 PRIVATE
+    homework_2_lib
 )
 
 if(WITH_BOOST_TEST)
@@ -46,10 +46,10 @@ if(WITH_BOOST_TEST)
 endif()
 
 if (MSVC)
-    target_compile_options(otus_2 PRIVATE
+    target_compile_options(homework_2 PRIVATE
         /W4
     )
-    target_compile_options(otus_2_lib PRIVATE
+    target_compile_options(homework_2_lib PRIVATE
         /W4
     )
     if(WITH_BOOST_TEST)
@@ -58,10 +58,10 @@ if (MSVC)
         )
     endif()
 else ()
-    target_compile_options(otus_2 PRIVATE
+    target_compile_options(homework_2 PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(otus_2_lib PRIVATE
+    target_compile_options(homework_2_lib PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
     if(WITH_BOOST_TEST)
@@ -71,7 +71,7 @@ else ()
     endif()
 endif()
 
-install(TARGETS otus_2 RUNTIME DESTINATION bin)
+install(TARGETS homework_2 RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
