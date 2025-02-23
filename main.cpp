@@ -5,6 +5,7 @@
 #include <array>
 #include <algorithm>
 #include <iterator>
+#include <cstdint>
 
 using namespace std;
 
