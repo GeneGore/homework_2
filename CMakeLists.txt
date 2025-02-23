@@ -41,7 +41,7 @@ if(WITH_BOOST_TEST)
 
     target_link_libraries(test_version
         ${Boost_LIBRARIES}
-        helloworld
+        homework_2_lib
     )
 endif()
 
